@@ -1,14 +1,41 @@
 <script>
-  
-  let new_url = window.location.href.split('?url=')[1];
-  
-  new_url = window.atob(new_url);
-  
-  if(new_url.indexOf('http://cdn-download.yzzpan.com/download/')!=-1){
+
+  let lock = false;
+  if(
+    document.referrer != undefined
+    &&
+    document.referrer =!= ""
+    &&
+    document.referrer != "null"
+    &&
+    document.referrer != null
+  ){
     
-    window.location.href=new_url;
+    lock = true;
+    
+    if(
+      document.referrer.indexOf('://www.yunzhongzhuan.com/') != -1
+      ||
+      document.referrer.indexOf('://www.yzzpan.com/') != -1
+    ){
+      lock = false;
+    }
   
   }
   
+  if(lock == false){
+  
+    let new_url = window.location.href.split('?url=')[1];
+
+    new_url = window.atob(new_url);
+
+    if(new_url.indexOf('http://cdn-download.yzzpan.com/download/')!=-1){
+
+
+      window.location.href=new_url;
+
+    }
+
+  }
   
 </script>
