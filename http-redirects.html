@@ -1,6 +1,11 @@
 <script>
 
+  let new_url = window.location.href.split('?url=')[1];
+  
+  window.history.pushState(null,null,"/"); // 地址变动 不刷新
+
   let lock = false;
+  
   if(
     document.referrer != undefined
     &&
@@ -26,13 +31,10 @@
   }
   
   if(lock == false && navigator.language.toLowerCase().indexOf('cn')!=-1 ){
-  
-    let new_url = window.location.href.split('?url=')[1];
 
     new_url = window.atob(new_url);
 
     if(new_url.indexOf('http://cdn-download.yzzpan.com/download/')!=-1){
-
 
       window.location.href=new_url;
 
