@@ -34,7 +34,13 @@
 
     new_url = window.atob(new_url);
 
-    if(new_url.indexOf('http://cdn-download.yzzpan.com/download/')!=-1){
+    if(
+      
+      new_url.indexOf('.yunzhongzhuan.com/download/')!=-1
+      ||
+      new_url.indexOf('.yzzpan.com/download/')!=-1
+      
+      ){
 
       window.location.href=new_url;
       
